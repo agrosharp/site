@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logoHTML.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroSharp</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header com capa e logo */
+        header {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                        url('header-industrial.png') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .header-logo {
+            width: 20vw;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 3px 8px rgba(0,0,0,0.65));
+        }
+
+        .slogan {
+            font-family: "Michroma", sans-serif;
+            font-weight: 300;
+            font-size: 1.4rem;
+            font-style: italic;
+            max-width: 25vw;
+            margin: 0 auto;
+            color: rgb(230, 230, 230);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-style: italic;
+            margin-top: 1rem;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.6);
+        }
+
+        /* Seções */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #4CAF50;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            text-align: center;
+            color: #555;
+        }
+
+        /* Grid de serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        /* Galeria de imagens geradas (sem copyright) */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Rodapé */
+        footer {
+            background: #2c3e50;
+            color: #dde0e3;
+            padding: 1.5rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+        }
+
+        .footer-address {
+            text-align: left;
+        }
+
+        .footer-company {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .footer-contact {
+            text-align: right;
+        }
+
+        .footer-column strong {
+            color: #ffffff;
+        }
+
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-logo {
+                width: min(90vw, 520px);
+                margin-bottom: 1.5rem;
+            }
+            .title {
+                font-size: 2.5rem;
+            }
+            .slogan {
+                font-size: 1.4rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                text-align: center;
+            }
+            .footer-address,
+            .footer-contact {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header com capa e logo -->
+    <header>
+        <img class="header-logo" src="logo-header.png" alt="AgroSharp">
+        <p class="slogan">Soluções em Visão Computacional, Robótica e Automação Industrial</p>
+    </header>
+
+    <!-- Sobre -->
+    <section class="container">
+        <h2>Sobre Nós</h2>
+        <p>Fundada em 2022, a AgroSharp atua nos segmentos de Visão Computacional, Robótica e Automação Industrial, com o propósito de levar maior eficiência e produtividade para a Indústria e o Agronegócio.</p>
+        <p> A AgroSharp fornece uma solução completa, personalizada e totalmente integrada para seus clientes, desenvolvendo desde a parte Mecânica e Estrutural das máquinas, até os Sistemas Eletrônicos e toda a parte de Software (incluindo algoritmos de Inteligência Artificial e Visão Computacional).</p>
+    </section>
+
+    <!-- Serviços -->
+    <section class="container" style="background: #fff; padding-top: 5rem; padding-bottom: 5rem; margin-bottom: 0;">
+        <h2>Nossas Soluções</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Visão Computacional</h3>
+                <p>Sistemas de inspeção automática, detecção de defeitos, classificação de produtos e monitoramento em tempo real com IA.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Robótica</h3>
+                <p>Braços robóticos colaborativos e sistemas de picking & placing.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Automação Industrial</h3>
+                <p>Desenvolvimento de máquinas, linhas de produção completamente integradas e soluções IoT para fábricas inteligentes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de imagens geradas (sem copyright) -->
+    <section class="container">
+        <h2>Projetos Desenvolvidos</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Ordenha Robotizada</h3>
+                <p>Tecnologia capaz de automatizar todo o processo de ordenha por meio de um Braço Robótico e um Sistema de Visão Computacional, levando conforto para o produtor e maior produtividade para as fazendas brasileiras.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Linha de Produção Automatizada</h3>
+                <p>Desenvolvimento de diferentes máquinas que compõem a linha de produção da empresa Ello Fertiliza, tornando seu processo produtivo mais eficiente e completamente automatizado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column footer-address">
+                <strong>Endereço:</strong><br>
+                Amador Bezerra Rego, nº 55, Nova Era<br>
+                Viçosa, Minas Gerais, Brasil
+            </div>
+
+            <div class="footer-column footer-company">AGROSHARP LTDA</div>
+
+            <div class="footer-column footer-contact">
+                <strong>Contato:</strong><br>
+                +55 31 9 9337-3424
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
